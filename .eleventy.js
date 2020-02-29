@@ -1,5 +1,6 @@
 const { DateTime }  = require('luxon');
 const util          = require('util');
+const CleanCSS      = require("clean-css");
 
 module.exports = function(eleventyConfig) {
 
@@ -40,6 +41,10 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/site/fonts");
   eleventyConfig.addPassthroughCopy("./src/site/images");
   eleventyConfig.addPassthroughCopy("./src/site/css");
+
+  eleventyConfig.addFilter("cssmin", function(code) {
+    return new CleanCSS({}).minify(code).styles;
+  });
 
   return  {
     dir: {
