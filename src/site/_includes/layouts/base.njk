@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {# <link rel="stylesheet" href="/css/styles.css"> #}
     {% set css %}
-      {% include "js/core.js" %}
+      {% include "../../../../dist/css/styles.css" %}
     {% endset %}
     <style>
     {{ css | cssmin | safe }}  
-      
     </style>
     <title>{{ title }}</title>
     {% include "social.njk" %}
